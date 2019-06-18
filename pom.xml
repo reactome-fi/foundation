@@ -4,8 +4,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>fi_foundation</groupId>
-	<artifactId>fi_foundation</artifactId>
+	<groupId>org.reactome.fi</groupId>
+	<artifactId>foundation</artifactId>
 	<version>1.0.0</version>
 	<name>fi_foundation</name>
 	<description>Foundation packages for ReactomeFIViz and cancer data analysis</description>
