@@ -144,6 +144,15 @@
 	</repositories>
 
 	<build>
+		<resources>
+			<resource>
+				<directory>${project.basedir}/src/main/java/org/reactome/cancerindex/model</directory>
+				<targetPath>org/reactome/cancerindex/model</targetPath>
+				<includes>
+					<include>*.xml</include>
+				</includes>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
