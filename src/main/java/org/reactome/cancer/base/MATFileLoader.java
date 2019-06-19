@@ -45,6 +45,36 @@ public class MATFileLoader {
     }
     
     /**
+     * This method is used to count the total mutation number in each sample as long as mutation is
+     * listed in the MAF file.
+     * @param fileName
+     * @return
+     * @throws IOException
+     */
+    public Map<String, Integer> countSampleMutationNumbers(String fileName) throws IOException {
+        List<String> sampleList = new ArrayList<String>();
+        FileUtility fu = new FileUtility();
+        fu.setInput(fileName);
+        String line = fu.readLine();
+        // Get sample index
+        int sampleIndex = 0;
+        String[] tokens = line.split("\t");
+        for (int i = 0; i < tokens.length; i++) {
+            if (tokens[i].equals(Tumor_Sample_Barcode)) {
+                sampleIndex = i;
+                break;
+            }
+        }
+        while ((line = fu.readLine()) != null) {
+            tokens = line.split("\t");
+            String sample = tokens[sampleIndex];
+            sampleList.add(sample);
+        }
+        fu.close();
+        return InteractionUtilities.countTermUsageInList(sampleList);
+    }
+    
+    /**
      * Load the annotated mutation after checking with the passed gene lengths.
      * @param fileName
      * @param geneToLength
