@@ -1,0 +1,7 @@
+Jar files in this folder should be installed into the local maven repo with the following informaiton
+
+		<dependency>
+			<groupId>org.reactome.fi</groupId>
+			<artifactId>build</artifactId>
+			<version>1.0.1</version>
+		</dependency>
