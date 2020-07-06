@@ -31,6 +31,8 @@ public class AnnotationHelper {
     private GOTermLoader goTermLoader;
     // For Reactome pathways only
     private String proteinNameToReactomePathwayFile;
+    // For Reactome mouse pathways
+    private String mouseGeneToPathwayFile;
     private String reactionIdToPathwayFile;
     
     public AnnotationHelper() {
@@ -39,6 +41,14 @@ public class AnnotationHelper {
     
     public String getReactionIdToPathwayFile() {
         return reactionIdToPathwayFile;
+    }
+
+    public String getMouseGeneToPathwayFile() {
+        return mouseGeneToPathwayFile;
+    }
+
+    public void setMouseGeneToPathwayFile(String mouseGeneToPathwayFile) {
+        this.mouseGeneToPathwayFile = mouseGeneToPathwayFile;
     }
 
     public void setReactionIdToPathwayFile(String reactionIdToPathwayFile) {
@@ -85,6 +95,12 @@ public class AnnotationHelper {
         if (proteinNameToReactomePathwayFile == null)
             return null;
         return fu.loadSetMap(proteinNameToReactomePathwayFile);
+    }
+    
+    public Map<String, Set<String>> loadMouseGeneToReactomePathwayMap() throws IOException {
+        if (mouseGeneToPathwayFile == null)
+            return null;
+        return fu.loadSetMap(mouseGeneToPathwayFile);
     }
     
     public Map<String, Set<String>> loadReactomeReactionToPathwaysMap() throws IOException {

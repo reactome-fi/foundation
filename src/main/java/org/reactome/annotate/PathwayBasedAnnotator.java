@@ -97,6 +97,17 @@ public class PathwayBasedAnnotator {
     }
     
     /**
+     * Annotate a set of genes with all Reactome pathways, which are organized in a hierarchical way.
+     * @param genes
+     * @return
+     * @throws Exception
+     */
+    public List<GeneSetAnnotation> annotateMouseGenesWithReactomePathways(Collection<String> genes) throws Exception {
+        Map<String, Set<String>> geneToPathways = annotationHelper.loadMouseGeneToReactomePathwayMap();
+        return annotateGeneSet(genes, geneToPathways);
+    }
+    
+    /**
      * Annotate a set of ids of reactions extracted from Reactome based on pathways.
      * @param reactionIds
      * @return
@@ -255,6 +266,8 @@ public class PathwayBasedAnnotator {
      */
     private List<GeneSetAnnotation> annotateGeneSet(Collection<String> genes,
                                                     Map<String, Set<String>> geneToPathways) throws IOException {
+        if (geneToPathways == null || geneToPathways.size() == 0)
+            return new ArrayList<>();
         Map<String, Integer> pathwayToGeneNumber = annotationHelper.countProteinsInTopics(geneToPathways);
         //System.out.println("Total pathways: " + pathwayToGeneNumber.size());
         Map<String, Double> pathwayToRatio = annotationHelper.calculateTopicToRatio(geneToPathways.size(),
