@@ -6,7 +6,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.reactome.fi</groupId>
 	<artifactId>foundation</artifactId>
-	<version>1.0.1</version>
+	<version>1.0.2</version>
 	<name>fi_foundation</name>
 	<description>Foundation packages for ReactomeFIViz and cancer data analysis</description>
 

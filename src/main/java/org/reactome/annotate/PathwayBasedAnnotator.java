@@ -264,7 +264,7 @@ public class PathwayBasedAnnotator {
      * @return
      * @throws IOException
      */
-    private List<GeneSetAnnotation> annotateGeneSet(Collection<String> genes,
+    public List<GeneSetAnnotation> annotateGeneSet(Collection<String> genes,
                                                     Map<String, Set<String>> geneToPathways) throws IOException {
         if (geneToPathways == null || geneToPathways.size() == 0)
             return new ArrayList<>();
